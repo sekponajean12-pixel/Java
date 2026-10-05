@@ -1,8 +1,9 @@
 public class Variables {
     public static void main(String[] args){
-        int a = 1;
-        int b = 2;
-        int c = 3;
-        System.out.println("La somme de " + a + " + " + b + " = " + c);
+        int a = 3, b = 4;
+        int c = a;
+        a = b;
+        b = c;
+        System.out.println("La valeur de  a est : " + a + " et la valeur de b est : " + b);
     }
 }
