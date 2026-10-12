@@ -5,7 +5,7 @@ public class CaisseBoutique {
 
         //Constantes & variables
 
-        final double TAUX_TVA = 0.18;
+        final double TAUX_TVA = .18;
 
         String nomArticle = "";
         double prixUnitaire = 0.0;
@@ -44,6 +44,7 @@ public class CaisseBoutique {
         System.out.println("Total TTC: " + totalTTC + " F (en entier: " + (int) totalTTC + " F)");
         System.out.println("Prix unitaire arrondi: " + (int) (prixUnitaire + 0.5) + " F");
         System.out.println("Reste modulo 5000: " + reste + " F");
+
     }
 }
 
