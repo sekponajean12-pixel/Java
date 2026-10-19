@@ -3,7 +3,7 @@ public class Distributeur {
     public static void main(String[] args) {
 
         //Constantes & variables
-        final int REAPROVISIONNEMENT = 3;
+        
         final double PRIX_BOISSON = 350.0;
         final int STOCK_INITIAL = 5;
         Scanner Clavier = new Scanner(System.in);
@@ -11,10 +11,8 @@ public class Distributeur {
         int quantite = 0;
         double montantPaye = 0.0;
         double monnaie = 0.0;
-        int stock ;
-        stock = STOCK_INITIAL;
-        stock += 3;
-        int stockApresReaprovisionnement = stock;
+        int stock = STOCK_INITIAL;
+        int stockApresReaprovisionnement = stock += 3;;
 
 
         //Saisies utilisateur
@@ -36,22 +34,16 @@ public class Distributeur {
  
         int b10000 = reste / 10000;
         reste = reste % 10000;
- 
         int b5000 = reste / 5000;
         reste = reste % 5000;
- 
         int b2000 = reste / 2000;
         reste = reste % 2000;
- 
         int b1000 = reste / 1000;
         reste = reste % 1000;
- 
         int p500 = reste / 500;
         reste = reste % 500;
- 
         int p100 = reste / 100;
         reste = reste % 100;
- 
         int p25 = reste / 25;
         reste = reste % 25;
 
@@ -62,7 +54,7 @@ public class Distributeur {
         System.out.println("Prix unitaire : " + PRIX_BOISSON + " F");
         System.out.println();
         System.out.println("Stock initial : " + STOCK_INITIAL);
-        System.out.println("Après réapprovisionnement (+" + REAPROVISIONNEMENT + ") : " + stockApresReaprovisionnement);
+        System.out.println("Après réapprovisionnement (+3) : " + stockApresReaprovisionnement);
         System.out.println("Boissons vendues : " + quantite);
         System.out.println("Stock restant : " + stock);
         System.out.println();
@@ -81,6 +73,7 @@ public class Distributeur {
         System.out.println();
         System.out.println("Merci " + nomClient + ", à bientôt !");
         System.out.println("====================================");
-        
+        Clavier.close();
+
 }
 }
