@@ -13,7 +13,7 @@ public class Distributeur {
         double monnaie = 0.0;
         int stock ;
         stock = STOCK_INITIAL;
-        stock += REAPROVISIONNEMENT;
+        stock += 3;
         int stockApresReaprovisionnement = stock;
 
 
@@ -25,34 +25,62 @@ public class Distributeur {
         System.out.print("Montant payé : ");
         montantPaye = Clavier.nextDouble();
         Clavier.nextLine(); //Vider le buffer
-
-        //verification
-
-        if (quantite <= 0) {
-            System.out.println("Attention : la quantité doit être positive.");
-            Clavier.close();
-            return;
-        }
-        if (quantite > stock) {
-            System.out.println("Attention : stock insuffisant (il reste " + stock + " boissons).");
-            Clavier.close();
-            return;
-    }
         
     //Calculs
         double montantATotal = quantite * PRIX_BOISSON;
         monnaie = montantPaye - montantATotal;
         monnaie = Math.round(monnaie * 100.0) / 100.0; //Arrondi à 2 décimales
-        
 
-        //Affichage
-        System.out.println("Nom du client : " + nomClient);
-        System.out.println("Quantité achetée : " + quantite);
-        System.out.println("Montant payé : " + montantPaye);
-        System.out.println("Montant total : " + montantATotal);
-        System.out.println("Monnaie à rendre : " + monnaie);
+     // ===== 5. Décomposition de la monnaie avec % =====
+        int reste = (int) monnaie;   // transtypage double -> int
+ 
+        int b10000 = reste / 10000;
+        reste = reste % 10000;
+ 
+        int b5000 = reste / 5000;
+        reste = reste % 5000;
+ 
+        int b2000 = reste / 2000;
+        reste = reste % 2000;
+ 
+        int b1000 = reste / 1000;
+        reste = reste % 1000;
+ 
+        int p500 = reste / 500;
+        reste = reste % 500;
+ 
+        int p100 = reste / 100;
+        reste = reste % 100;
+ 
+        int p25 = reste / 25;
+        reste = reste % 25;
+
+        // ===== 6. Affichage des résultats =====
+
+        System.out.println("===== DISTRIBUTEUR AUTOMATIQUE =====");
+        System.out.println("Client : " + nomClient);
+        System.out.println("Prix unitaire : " + PRIX_BOISSON + " F");
+        System.out.println();
+        System.out.println("Stock initial : " + STOCK_INITIAL);
+        System.out.println("Après réapprovisionnement (+" + REAPROVISIONNEMENT + ") : " + stockApresReaprovisionnement);
+        System.out.println("Boissons vendues : " + quantite);
         System.out.println("Stock restant : " + stock);
-
-        Clavier.close();
+        System.out.println();
+        System.out.println("Total à payer : " + montantATotal + " F");
+        System.out.println("Montant payé : " + montantPaye + " F");
+        System.out.println("Monnaie à rendre : " + monnaie + " F");
+        System.out.println();
+        System.out.println("--- Détail du rendu ---");
+        System.out.println("Billets de 10000 : " + b10000);
+        System.out.println("Billets de 5000  : " + b5000);
+        System.out.println("Billets de 2000  : " + b2000);
+        System.out.println("Billets de 1000  : " + b1000);
+        System.out.println("Pièces  de 500   : " + p500);
+        System.out.println("Pièces  de 100   : " + p100);
+        System.out.println("Pièces  de 25    : " + p25);
+        System.out.println();
+        System.out.println("Merci " + nomClient + ", à bientôt !");
+        System.out.println("====================================");
+        
 }
 }
