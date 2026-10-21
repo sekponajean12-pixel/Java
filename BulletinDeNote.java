@@ -37,14 +37,32 @@ public class BulletinDeNote {
             clavier.nextLine(); 
         }
 
+        // Calculs
+        String garde = "";
+        String mention = "";
+        moyenne = somme / NB_MATIERES;
+        moyenne = Math.round(moyenne * 100.0) / 100.0; // Arrondi à 2 décimales
+        int nbEchoueesAbs = Math.abs(nbEchouees); // Convertir en valeur absolue
 
-
-
-
-
-
-
-
+        if (moyenne >= 16) {
+            garde = "A";
+            mention = "Excellent";
+        } else if (moyenne >= 14) {
+            garde = "B";
+            mention = "Très bien";
+        } else if (moyenne >= 12) {
+            garde = "C";
+            mention = "Bien";
+        } else if (moyenne >= 10) {
+            garde = "D";
+            mention = "Passable";
+        } else if (moyenne >= 8) {
+            garde = "E";
+            mention = "Insuffisant";
+        } else {
+            garde = "F";
+            mention = "Échec";
+        }
 
         clavier.close();
     }
