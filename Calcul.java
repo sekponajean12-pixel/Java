@@ -8,7 +8,7 @@ public class Calcul {
         System.out.print("Premier nombre entier : ");
         int a = clavier.nextInt();
  
-        System.out.print("Deuxième nombre entier : ");
+        System.out.print("Deuxième nombre entier : "); 
         int b = clavier.nextInt();
  
         System.out.print("Opération (+, -, *, /) : ");
