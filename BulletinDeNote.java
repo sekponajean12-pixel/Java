@@ -63,7 +63,57 @@ public class BulletinDeNote {
             garde = "F";
             mention = "Échec";
         }
-
+         String decision;
+ 
+        if (moyenne >= SEUIL_ADMISSION) {
+            if (nbValidees >= NB_MATIERES / 2) {
+                decision = "ADMIS ✓";
+            } else {
+                decision = "ADMIS SOUS CONDITION";
+            }
+        } else {
+            decision = "RECALÉ ✗";
+        }
+ 
+        // ===== 6. Bonus : transtypage et modulo =====
+        int moyenneEntiere = (int) moyenne;
+        String parite;
+        if (moyenneEntiere % 2 == 0) {
+            parite = "paire";
+        } else {
+            parite = "impaire";
+        }
+ 
+        // ===== 7. Affichage du bulletin =====
+        System.out.println();
+        System.out.println("===== BULLETIN DE NOTES =====");
+        System.out.println("Nom : " + nom);
+        System.out.println("Classe : " + classe);
+        System.out.println();
+        System.out.println("--- Résultats ---");
+        System.out.println("Somme des notes : " + somme + " / " + (int) (NB_MATIERES * NOTE_MAX));
+        System.out.println("Moyenne : " + moyenne + " / " + (int) NOTE_MAX);
+        System.out.println("Matières validées : " + nbValidees + " / " + NB_MATIERES);
+        System.out.println("Matières échouées : " + nbEchoueesAbs + " / " + NB_MATIERES);
+        System.out.println();
+        System.out.println("Grade : " + garde);
+        System.out.println("Mention : " + mention);
+        System.out.println("Décision : " + decision);
+        System.out.println(" La moyenne " + moyenneEntiere + " est " + parite);
+        System.out.println("Entier de la moyenne : " + moyenneEntiere);
+        System.out.println();
+ 
+        // Message final
+        if (garde.equals("A")) {
+            System.out.println("Félicitations " + nom + ", résultat exceptionnel !");
+        } else if (decision.startsWith("ADMIS")) {
+            System.out.println("Félicitations " + nom + " !");
+        } else {
+            System.out.println("Courage " + nom + ", tu peux y arriver !");
+        }
+ 
+        System.out.println("==============================");
+ 
         clavier.close();
     }
 }
